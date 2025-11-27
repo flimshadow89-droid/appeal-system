@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Submit an appeal for moderation actions">
+    <title>💀 Appeal System - TERMINATED</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- FORM CONTAINER -->
+    <div class="container" id="formContainer">
+        <div class="header">
+            <div class="skull">💀</div>
+            <h1>USER TERMINATED</h1>
+            <p class="subtitle">Appeal Moderation Action</p>
+        </div>
+
+        <div class="warning-banner">
+            <span class="warning-icon">⚠️</span>
+            <p>Your account has been subject to moderation. Complete this form to appeal.</p>
+        </div>
+
+        <form id="appealForm" class="appeal-form">
+            <div class="form-group">
+                <label for="username">Discord Username *</label>
+                <input 
+                    type="text" 
+                    id="username" 
+                    name="username" 
+                    placeholder="YourName#1234" 
+                    required
+                    autocomplete="off">
+                <span class="helper-text">Your full Discord username with tag</span>
+            </div>
+
+            <div class="form-group">
+                <label for="userId">Discord User ID *</label>
+                <input 
+                    type="text" 
+                    id="userId" 
+                    name="userId" 
+                    placeholder="123456789012345678" 
+                    pattern="\d{17,19}"
+                    required
+                    autocomplete="off">
+                <span class="helper-text">Right-click your profile → Copy User ID</span>
+            </div>
+
+            <div class="form-group">
+                <label for="serverName">Server Name *</label>
+                <input 
+                    type="text" 
+                    id="serverName" 
+                    name="serverName" 
+                    placeholder="Server where you were moderated" 
+                    required
+                    autocomplete="off">
+            </div>
+
+            <div class="form-group">
+                <label for="actionType">Moderation Action *</label>
+                <select id="actionType" name="actionType" required>
+                    <option value="">Select action type...</option>
+                    <option value="Warning">⚠️ Warning</option>
+                    <option value="Mute">🔇 Mute</option>
+                    <option value="Timeout">⏱️ Timeout</option>
+                    <option value="Kick">👢 Kick</option>
+                    <option value="Ban">🔨 Ban</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="reason">Why should this be appealed? *</label>
+                <textarea 
+                    id="reason" 
+                    name="reason" 
+                    rows="5" 
+                    placeholder="Explain why you believe this action was unfair or should be reconsidered..." 
+                    minlength="50"
+                    required></textarea>
+                <span class="helper-text char-counter" id="reasonCounter">0/50 characters minimum</span>
+            </div>
+
+            <div class="form-group">
+                <label for="rulesUnderstood">Do you understand the server rules? *</label>
+                <select id="rulesUnderstood" name="rulesUnderstood" required>
+                    <option value="">Select...</option>
+                    <option value="Yes">Yes, I understand the rules</option>
+                    <option value="No">No, I need clarification</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="future">What will you do differently in the future? *</label>
+                <textarea 
+                    id="future" 
+                    name="future" 
+                    rows="4" 
+                    placeholder="Explain how you will avoid breaking rules in the future..." 
+                    minlength="30"
+                    required></textarea>
+                <span class="helper-text char-counter" id="futureCounter">0/30 characters minimum</span>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+                <span class="btn-text">Submit Appeal</span>
+                <span class="btn-icon">💀</span>
+            </button>
+
+            <div class="loading" id="loadingState" style="display: none;">
+                <div class="spinner"></div>
+                <p>Submitting appeal...</p>
+            </div>
+
+            <div class="error-message" id="errorMessage" style="display: none;">
+                <span class="error-icon">❌</span>
+                <p id="errorText">An error occurred. Please try again.</p>
+            </div>
+        </form>
+
+        <div class="footer">
+            <p>💀 AegisMod AI Ultra - Appeal System</p>
+            <p class="footer-note">Appeals are reviewed by moderators within 24-48 hours</p>
+        </div>
+    </div>
+
+    <!-- SUCCESS CONTAINER -->
+    <div class="container" id="successContainer" style="display: none;">
+        <div class="success-content">
+            <div class="success-icon">✅</div>
+            <h1 class="success-title">Appeal Submitted!</h1>
+            <p class="success-message">Your appeal has been successfully sent to the moderation team.</p>
+            
+            <div class="info-box">
+                <h3>📋 What Happens Next?</h3>
+                <ul>
+                    <li>Your appeal will be reviewed by moderators within 24-48 hours</li>
+                    <li>You will receive a DM notification on Discord with the decision</li>
+                    <li>Please be patient while the team reviews your case</li>
+                    <li>Do not submit multiple appeals for the same action</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h3>💀 Important Reminders</h3>
+                <ul>
+                    <li>Make sure your Discord DMs are open to receive updates</li>
+                    <li>Submitting false information may result in permanent action</li>
+                    <li>Respect the moderators' final decision</li>
+                </ul>
+            </div>
+
+            <button onclick="location.reload()" class="back-btn">
+                Submit Another Appeal
+            </button>
+        </div>
+
+        <div class="footer">
+            <p>💀 AegisMod AI Ultra - Appeal System</p>
+            <p class="footer-note">Thank you for your patience</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
